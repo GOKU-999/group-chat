@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 Friends Group Chat</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="chat-header">
+            <h1><i class="fas fa-users"></i> 3 Friends Chat</h1>
+            <div class="status" id="status">
+                <span class="online" id="online-count">0/3</span> Online
+            </div>
+        </div>
+        
+        <div class="chat-container">
+            <div class="sidebar">
+                <div class="users-list">
+                    <h3><i class="fas fa-user-friends"></i> Online Friends</h3>
+                    <ul id="users-list"></ul>
+                </div>
+                <div class="info-box">
+                    <p><i class="fas fa-link"></i> Share this link with 2 friends</p>
+                    <p><i class="fas fa-lock"></i> Room closes after 3 people join</p>
+                </div>
+            </div>
+            
+            <div class="chat-box">
+                <div class="messages" id="messages">
+                    <!-- Messages will appear here -->
+                </div>
+                
+                <div class="typing-indicator" id="typing-indicator"></div>
+                
+                <div class="input-area">
+                    <input type="text" id="message-input" placeholder="Type your message..." autocomplete="off">
+                    
+                    <div class="file-buttons">
+                        <label for="file-upload" class="file-btn" title="Send Image">
+                            <i class="fas fa-image"></i>
+                            <input type="file" id="file-upload" accept="image/*,video/*" style="display: none;">
+                        </label>
+                        <button id="send-btn" class="send-btn">
+                            <i class="fas fa-paper-plane"></i> Send
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal" id="welcome-modal">
+        <div class="modal-content">
+            <h2>Welcome to Group Chat!</h2>
+            <p id="welcome-message">Loading...</p>
+            <button id="close-modal">Start Chatting</button>
+        </div>
+    </div>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="chat.js"></script>
+</body>
+</html>
